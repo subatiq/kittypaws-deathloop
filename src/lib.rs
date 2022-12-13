@@ -1,8 +1,16 @@
 use rand::Rng;
 use tokio::runtime::Runtime;
 use iso8601_duration::Duration;
-use pluginterface::{PlugInterface, PlugConfig};
 use docker_api::{Docker, Result, Container};
+use std::collections::HashMap;
+
+pub type PlugConfig = HashMap<String, String>;
+
+pub trait PlugInterface {
+    fn run(&self, config: &PlugConfig);
+    fn clone_dyn(&self) -> Box<dyn PlugInterface + Send>;
+}
+
 
 #[no_mangle]
 pub extern "Rust" fn new_service() -> Box<dyn PlugInterface> {
