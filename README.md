@@ -17,3 +17,6 @@ plugins:
     max_interval: PT6H
 ```
 
+`target` - which container to restart.
+
+The rest is described in [kittypaws](https://github.com/subatiq/kittypaws) README.
