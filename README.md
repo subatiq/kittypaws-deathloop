@@ -11,8 +11,9 @@ Put the `run.sh` into `~/.kittypaws/plugins/deathloop` folder.
 ```yaml
 plugins:
 - deathloop:
-    target: mmcv_traffic-npd_1
+    target: container-name
     frequency: random
     min_interval: PT4H
     max_interval: PT6H
 ```
+
